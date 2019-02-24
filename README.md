@@ -1,10 +1,7 @@
 # ecef2lla
 Co-ordinate transformation (ECEF - LLA) routines in Python
 Functions in Python written to convert between ECEF and (Lat, Long, Alt) coordinates.
-The transformation assumes WGS84 ellipsoid
 
-The conversion from ECEF to LLA is an iterative process without an exact numerical solution. To this end, 
-included in the repo is a 'testbench.py' routine that calculates the transformation for 100 points (default value) and prints
-the mean error in altitude compared to the ground truth.
+While the transformation from (lat, lon, alt) to (x, y, z) is a relatively straightforward process, the inverse transformation is more involved.
 
-Following the calculations and code from the website : https://ea4eoz.blogspot.com/2015/11/simple-wgs-84-ecef-conversion-functions.html
+Here, we use the code previously available (https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/7942/versions/1/previews/lla2ecef.m/index.html, https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#From_geodetic_to_ECEF_coordinates) for the first transformation, and follow the work of Hugues Vermeille ("An analytical method to transform geocentric into geodetic coordinates, 2011)" and Zhu (https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#The_application_of_Ferrari's_solution, https://ieeexplore.ieee.org/document/303772)to produce two functions for the latter transformation.
